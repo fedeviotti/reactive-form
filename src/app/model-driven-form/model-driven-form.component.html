@@ -1,0 +1,30 @@
+<section class="sample-app-content">
+  <h1>Model-based Form Example:</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>
+        <label>First Name:</label>
+        <input type="text" formControlName="firstName">
+      </p>
+      <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+          class="alert alert-danger">
+
+        <div *ngIf="firstName.errors.required">
+          Name is required.
+        </div>
+      </div>
+      <p>
+        <label>Password:</label>
+        <input type="password" formControlName="password">
+      </p>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert alert-danger">
+
+        <div *ngIf="password.errors.required">
+          Password is required.
+        </div>
+      </div>
+      <p>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+      </p>
+  </form>
+</section>
